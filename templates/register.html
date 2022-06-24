@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" >
+    <meta name="description" content="MDN是一个面向广大数学爱好者的交流分享平台">
+    <meta name="keywords" content="MDN" >
+    <title>Title</title>
+
+    <link rel="stylesheet" href="/static/demo.css">
+    <link rel="stylesheet" href="/static/register.css">
+    <script src="/static/jquery.js"></script>
+<!--    <link rel="javascript" href="post.js">-->
+
+</head>
+<body >
+    <div id="app">
+        <div class="bck">
+            <form class="register" id="rgtd">
+                <div class="rgt" >
+                    {{ msg }}
+                    <input type="text" id="user_name" name="user_name" placeholder="手机号/邮箱/用户名"><br/>
+                    <input type="password"  id="user_psw" name="user_psw" placeholder="密码"><br/>
+                    <input type="password" id="user_rpsw" name="user_rpsw" placeholder="重复输入密码"><br/>
+                    <input type="text" name="check" id="code_input" placeholder="验证码" autocomplete="off">
+                    <div class="">
+                        <div id="v_container" style="padding-top:10px;width: 130px;height: 40px;"></div>
+                    </div>
+                    <button type="button" id="rgtb" style="cursor:pointer" onclick="cl()">注册</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<script src="/static/verify.js"></script>
+
+<script>
+    var verifyCode = new GVerify("v_container");
+    function cl(){
+        var res = verifyCode.validate(document.getElementById("code_input").value);
+        var user_name=document.getElementById("user_name").value;
+        var user_psw=document.getElementById("user_psw").value;
+        var user_rpsw=document.getElementById("user_rpsw").value;
+
+        if(res){
+            $.ajax({
+                url:'/register/',
+                type:'POST',
+                data:{'user_name':user_name,'user_psw':user_psw,'user_rpsw':user_rpsw,'res':"success"},
+                success:function () {
+                    alert("success");
+                    window.location.href="http://127.0.0.1:8000/login";
+                }
+            })
+        }else{
+            alert("验证码错误");
+        }
+    }
+</script>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" >
+    <meta name="description" content="MDN是一个面向广大数学爱好者的交流分享平台">
+    <meta name="keywords" content="MDN" >
+    <title>Title</title>
+
+    <link rel="stylesheet" href="/static/demo.css">
+    <link rel="stylesheet" href="/static/login.css">
+
+</head>
+<body>
+<div id="app">
+    <div class="bck">
+        <div class="login">
+            <form method="POST" action="/login/" class="lgt" >
+                <input type="text" name="name" placeholder="手机号/邮箱/用户名"><br/>
+                <input type="password" name="psw" placeholder="密码"><br/>
+                <div class="register">
+                    <a href="/register/" style="font-size: 16px">注册账号</a>
+                    <a href="#" style="font-size: 16px">忘记密码</a>
+                </div>
+                <button type="submit" id="rgtb">登陆</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

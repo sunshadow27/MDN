@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" >
+    <meta name="description" content="MDN是一个面向广大数学爱好者的交流分享平台">
+    <meta name="keywords" content="MDN" >
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/demo.css">
+    <link rel="stylesheet" href="/static/write.css">
+    <link rel="stylesheet" href="/static/node_modules/editor.md/css/editormd.css" />
+    <script src="/static/jquery.js"></script>
+
+    <script src="/static/node_modules/editor.md/editormd.min.js"></script>
+</head>
+<body onload="getCookie('name')">
+<div id="app">
+    <div class="list" id="list">
+        <ul role="menubar" class="le-menu" >
+            <!---->
+            <div >
+                <a href="/demo/" class="main">
+                    <span class="logo">MDN</span>
+                </a>
+            </div>
+            <hr class="fen"/>
+            <div>
+                <div href="/demo/" class="link-demo">
+                    <li >
+                        <div class="touxiang"><img src="/static/images/logo.png"></div>
+                        <a href="/login/" id="lgi" class="login"><p id="lgi1" style="font-size: 16px;">登陆/注册</p></a>
+                    </li>
+                </div>
+            </div>
+            <hr class="fen"/>
+            <div>
+                <li class="link-all">
+                    <ul>
+                        <a href="/demo/">
+                            <div>个人中心</div>
+                        </a>
+                    </ul>
+                    <ul>
+                        <a href="/demo/">
+                            <div>收藏</div>
+                        </a>
+                    </ul>
+                    <ul>
+                        <details class="ks-menu" >
+                            <summary style="color:#777777;padding-bottom: 10px">快速跳转</summary>
+                            <li>
+                                <ul>
+                                    <a href="../demo.html">基础学习区</a>
+                                </ul>
+                                <ul>
+                                    <a href="/demo/">前沿学习区</a>
+                                </ul>
+                                <ul>
+                                    <a href="/demo/">趣味头脑区</a>
+                                </ul>
+                                <ul>
+                                    <a href="/demo/">问题探究区</a>
+                                </ul>
+                            </li>
+                        </details>
+                    </ul>
+                    <ul>
+                        <details class="ks-menu" >
+                            <summary style="color:#777777;padding-bottom: 10px">创作中心</summary>
+                            <li>
+                                <ul>
+                                    <a href="/write/">发表博客</a>
+                                </ul>
+                                <ul>
+                                    <a href="/demo/">作品管理</a>
+                                </ul>
+                            </li>
+                        </details>
+                    </ul>
+                    <ul>
+                        <a href="/demo/">
+                            <div>关注列表</div>
+                        </a>
+                    </ul>
+                </li>
+            </div>
+        </ul>
+    </div>
+    <div class="index" id="index1">
+        <div id="test-editor" >
+            <textarea style="display:none;padding-bottom: 30px"></textarea>
+        </div>
+        <div id="button_up">
+            <div class="select_style">
+                <select id="select" name="select">
+                    <option selected>基础学习区</option>
+                    <option>前沿学习区</option>
+                    <option>趣味头脑区</option>
+                    <option>问题探究区</option>
+                </select>
+            </div>
+            <div id="msg"></div>
+            <button type="button" class="pos" onclick="saveUserInfo()">提交</button>
+        </div>
+
+    </div>
+
+
+</div>
+</body>
+<script type="text/javascript">
+    $(function() {
+        var editor = editormd("test-editor", {
+            width: "99%",
+            height:"90vh",
+            path: "/static/node_modules/editor.md/lib/", //依赖lib文件夹路径
+        });
+    });
+    function saveUserInfo()
+    {
+        var select=document.getElementById('select').selectedIndex;
+        $.ajax({
+                url:'/write/',
+                type:'POST',
+                data:{'content':($('.markdown-body.editormd-preview-container').html()),'class': document.getElementById('select').options[select].text},
+                success:function () {
+                    alert("提交成功，待审核！");
+                }
+    })
+
+
+
+    }
+    function getCookie(name) {
+     var cookies = document.cookie;
+     var list = cookies.split("; ");     // 解析出名/值对列表
+
+     for(var i = 0; i < list.length; i++) {
+         var arr = list[i].split("=");   // 解析出名和值
+         if (!name) {}
+         else
+         {
+         if (arr[0] === name){
+             document.getElementById('lgi1').innerHTML = decodeURIComponent(arr[1]);   // 对cookie值解码
+             document.getElementById('lgi').href = "http://127.0.0.1:8000/write/"
+         }
+         }
+
+     }
+}
+</script>
+</html>

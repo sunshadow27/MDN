@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" >
+    <meta name="description" content="MDN是一个面向广大数学爱好者的交流分享平台">
+    <meta name="keywords" content="MDN" >
+    <title>MDN数学交流平台</title>
+    <link rel="stylesheet" href="/static/demo.css">
+</head>
+<body onload="getCookie('name')">
+    <div id="app">
+        <div class="list" id="list">
+            <ul role="menubar" class="le-menu" >
+                <!---->
+                <div >
+                    <a href="/demo/" class="main">
+                        <span class="logo">MDN</span>
+                    </a>
+                </div>
+                <hr class="fen"/>
+                <div>
+                    <div href="/demo/" class="link-demo">
+                        <li >
+                            <div class="touxiang"><img src="/static/images/logo.png"></div>
+                            <a href="/login/" id="lgi" class="login"><p id="lgi1" style="font-size: 16px;">登陆/注册</p></a>
+                        </li>
+                    </div>
+                </div>
+                <hr class="fen"/>
+                <div>
+                    <li class="link-all">
+                        <ul>
+                            <a href="/demo/">
+                                <div>个人中心</div>
+                            </a>
+                        </ul>
+                        <ul>
+                            <a href="/demo/">
+                                <div>收藏</div>
+                            </a>
+                        </ul>
+                        <ul>
+                            <details class="ks-menu" >
+                                <summary style="color:#777777;padding-bottom: 10px">快速跳转</summary>
+                                <li>
+                                    <ul>
+                                        <a href="/demo/">基础学习区</a>
+                                    </ul>
+                                    <ul>
+                                        <a href="/demo/">前沿学习区</a>
+                                    </ul>
+                                    <ul>
+                                        <a href="/demo/">趣味头脑区</a>
+                                    </ul>
+                                    <ul>
+                                        <a href="/demo/">问题探究区</a>
+                                    </ul>
+                                </li>
+                            </details>
+                        </ul>
+                        <ul>
+                            <details class="ks-menu" >
+                                <summary style="color:#777777;padding-bottom: 10px">创作中心</summary>
+                                <li>
+                                    <ul>
+                                        <a href="/write/">发表博客</a>
+                                    </ul>
+                                    <ul>
+                                        <a href="/demo/">作品管理</a>
+                                    </ul>
+                                </li>
+                            </details>
+                        </ul>
+                        <ul>
+                            <a href="/demo/">
+                                <div>关注列表</div>
+                            </a>
+                        </ul>
+                    </li>
+                </div>
+            </ul>
+        </div>
+        <div class="index" id="index">
+            <div class="navbar" style="box-shadow: rgba(0,21,41,0.08)">
+                <div class="hd" onclick="document.getElementById('list').classList.toggle('closed');document.getElementById('index').classList.toggle('closed');" >
+                    <svg width="20" height="20">
+                        <use xlink:href="/static/node_modules/tabler-icons/tabler-sprite.svg#tabler-list"/>
+                    </svg>
+                </div>
+                <div class="Sc">
+                    <input type="" class="Search" placeholder="搜索框" id="" name="Search"/>
+                    <button class="-search">搜索</button>
+                </div>
+            </div>
+            <div class="Tab">
+                <div class="show">
+                    <div class="Re">
+                        <div class="re">
+                            <img src="/static/images/2.jpg" id="p1">
+                        </div>
+                        <div class="re">
+                            <img src="/static/images/2.jpg" id="p2">
+                        </div>
+                        <div class="re">
+                            <img src="/static/images/2.jpg" id="p3">
+                        </div>
+                    </div>
+                    <div class="Tui">
+                        <div class="tui">
+                            <div >
+                                <img src="/static/images/2.jpg">
+                            </div>
+                            <a id="t1" href="/show_article/?nid={{ article_list.0.id }}">{{ article_list.0.title }}</a>
+                        </div>
+                        <div class="tui">
+                            <div>
+                                <img src="/static/images/2.jpg">
+                            </div>
+                            <a id="t2" href="/show_article/?nid={{ article_list.1.id }}">{{ article_list.1.title }}</a>
+                        </div>
+                        <div class="tui">
+                            <div>
+                                <img src="/static/images/2.jpg">
+                            </div>
+                            <a id="t3" href="/show_article/?nid={{ article_list.2.id }}">{{ article_list.2.title }}</a>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="Tou">
+                    <div class="tou">
+                        <div>
+                            <img src="/static/images/2.jpg">
+                        </div>
+                        <a id="to1" href="/show_article/?nid={{ article_list.0.id }}">{{ article_list.0.title }}</a>
+                    </div>
+                    <div class="tou">
+                        <div>
+                            <img src="/static/images/2.jpg">
+                        </div>
+                        <a id="to2" href="/show_article/?nid={{ article_list.1.id }}">{{ article_list.1.title }}</a>
+                    </div>
+                    <div class="tou">
+                        <div>
+                            <img src="/static/images/2.jpg">
+                        </div>
+                        <a id="to3" href="/show_article/?nid={{ article_list.2.id }}">{{ article_list.2.title }}</a>
+                    </div>
+                    <div class="tou">
+                        <div>
+                            <img src="/static/images/2.jpg">
+                        </div>
+                        <a id="to4" href="/show_article/?nid={{ article_list.3.id }}">{{ article_list.3.title }}</a>
+                    </div>
+                    <div class="tou">
+                        <div>
+                            <img src="/static/images/2.jpg">
+                        </div>
+                        <a id="to5" href="/show_article/?nid={{ article_list.4.id }}">{{ article_list.4.title }}</a>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+</body>
+<script>
+function getCookie(name) {
+     var cookies = document.cookie;
+     var list = cookies.split("; ");     // 解析出名/值对列表
+
+     for(var i = 0; i < list.length; i++) {
+         var arr = list[i].split("=");   // 解析出名和值
+         if (!name) {}
+         else
+         {
+         if (arr[0] === name){
+             document.getElementById('lgi1').innerHTML = decodeURIComponent(arr[1]);   // 对cookie值解码
+             document.getElementById('lgi').href = "http://127.0.0.1:8000/write/"
+         }
+         }
+
+     }
+}
+</script>
+</html>
+

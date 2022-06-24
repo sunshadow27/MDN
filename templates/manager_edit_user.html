@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>编辑用户</h1>
+    {{ result.id }}
+    {{ result.name }}
+    <form method="POST" action="/manager_edit_user/">
+        <input style="display:none" name="id" value="{{ result.id }}">
+        <p>name:<input type="text" name="name" value="{{ result.name }}"/></p>
+        <p>sex:<input type="text" name="sex" value="{{ result.sex }}"/></p>
+        <p>point:<input type="text" name="point" value="{{ result.point }}"/></p>
+        <p>juris:<input type="text" name="juris" value="{{ result.juris }}"/></p>
+        <p>status:<input type="text" name="status" value="{{ result.status }}"/></p>
+        <p>head_portrait:<input type="text" name="head_portrait" value="{{ result.head_portrait }}"/></p>
+        <input type="submit" value="提交"/>
+    </form>
+</body>
+</html>

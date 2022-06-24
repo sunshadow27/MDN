@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/plugins/bootstrap-3.3.7-dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="/static/plugins/font-awesome-4.7.0/css/font-awesome.css" />
+    <link rel="stylesheet" href="/static/css/background_common.css"/>
+</head>
+<body>
+    <div class="pg_head">
+        <div class="logo left">后台管理</div>
+        <div class="avatar right" style="position: relative">
+            <img style=" width: 50px;height: 40px;" src="/static/images/1.jpg">
+            <div class="user_info">
+                <a>个人资料</a>
+                <a>注销</a>
+            </div>
+        </div>
+        <div class="rmenus right">
+            <a><i class="glyphicon glyphicon-comment"></i>&nbsp消息</a>
+            <a><i class="glyphicon glyphicon-envelope"></i>&nbsp邮件</a>
+        </div>
+    </div>
+    <div class="pg_body">
+        <div class="menus">
+            <a>用户管理</a>
+            <a>文章管理</a>
+            <a>热点管理</a>
+            <a>申诉管理</a>
+        </div>
+        <div class="content">
+            <ol class="breadcrumb">
+              <li><a href="#">首页</a></li>
+              <li><a href="#">用户管理</a></li>
+              <li class="active">添加用户</li>
+            </ol>
+            {% block xx %}  {% endblock %}
+        </div>
+    </div>
+</body>
+</html>
